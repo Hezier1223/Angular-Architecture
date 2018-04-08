@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { SharedRoutingModule } from './shared-routing.module';
+import { FormsModule } from '@angular/forms';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 @NgModule({
   imports: [
+    FormsModule,
     CommonModule,
-    SharedRoutingModule
   ],
-  declarations: []
+  declarations: [],
+  exports: [
+    CommonModule,
+    FormsModule,
+    NgZorroAntdModule,
+  ]
 })
-export class SharedModule { }
+export class SharedModule {
+}
