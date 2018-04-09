@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../core/service/auth.service';
+import { AuthService } from '../../core/service';
 
 @Injectable()
 export class LoginService {
@@ -19,7 +19,8 @@ export class LoginService {
   login() {
     this.message = 'Trying to log in ...';
 
-    this.authService.login().subscribe(() => {
+    this.authService.login().subscribe((val) => {
+      console.log(val);
       this.setMessage();
       if (this.authService.isLoggedIn) {
         // Get the redirect URL from our auth service
