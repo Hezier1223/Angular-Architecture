@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { slideInDownAnimation } from '../../shared/animation/route-animation';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,18 @@ export class LoginComponent implements OnInit {
   @HostBinding('style.display') display = 'block';
   @HostBinding('style.position') position = 'absolute';
 
-  constructor() {
+  constructor(private loginService: LoginService) {
   }
 
   ngOnInit() {
+  }
+
+  login() {
+    this.loginService.login();
+  }
+
+  logout() {
+    this.loginService.logout();
   }
 
 }
