@@ -2,30 +2,24 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { Md5 } from 'ts-md5/dist/md5';
 
 @Injectable()
 export class AuthService {
+  isLoggedIn = false;
+  redirectUrl: string;
+  token: string;
+
   constructor(private http: HttpClient) {
   }
-
-  isLoggedIn = false;
-
-  // store the URL so we can redirect after logging in
-  redirectUrl: string;
-
 
   login(): Observable<Object> {
     return this.http.post(`${environment.CRONUS_API}/login`, {
       account: 'admin',
-      password: 'b92a27d41aa04fd6addd533b13618ed6',
+      password: Md5.hashStr('1data$INFO'),
       roleCodes: 'system_ag'
-    }).pipe(
-      tap(_ => {
-        this.isLoggedIn = true;
-      })
-    );
+    });
   }
 
   logout(): void {

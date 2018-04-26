@@ -21,16 +21,11 @@ export class LoginService {
 
     this.authService.login().subscribe((val) => {
       console.log(val);
+      this.authService.isLoggedIn = true;
+      this.authService.token = val['data'];
       this.setMessage();
-      if (this.authService.isLoggedIn) {
-        // Get the redirect URL from our auth service
-        // If no redirect has been set, use the default
-        console.log(this.authService.redirectUrl);
-        const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/dashboard';
-
-        // Redirect the user
-        this.router.navigate([ redirect ]);
-      }
+      const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/dashboard';
+      this.router.navigate([redirect]).then();
     });
   }
 
