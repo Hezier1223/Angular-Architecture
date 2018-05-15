@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../login.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/service';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-login-form',
@@ -15,7 +16,8 @@ export class LoginFormComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private router: Router,
               private loginService: LoginService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private logger: NGXLogger) {
   }
 
   ngOnInit() {
@@ -35,8 +37,8 @@ export class LoginFormComponent implements OnInit {
 
 
   login() {
+    this.logger.info('Login');
     this.loginService.login().subscribe((val) => {
-      console.log(val);
       this.authService.isLoggedIn = true;
       this.authService.token = val['data'];
       const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/dashboard';

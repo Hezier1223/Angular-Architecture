@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 
 @NgModule({
@@ -23,6 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
     NgZorroAntdModule.forRoot(),
     SharedModule,
     CoreModule.forRoot(),
+    LoggerModule.forRoot({
+      // serverLoggingUrl: '/api/logs',
+      level: NgxLoggerLevel.DEBUG,
+      serverLogLevel: NgxLoggerLevel.ERROR
+    }),
     PageModule,
     AppRoutingModule
   ],
