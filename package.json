@@ -1,6 +1,9 @@
 {
-  "name": "public-sentiment-agent",
-  "arthur": "Max",
+  "name": "Angular-Architecture",
+  "arthur": {
+    "name": "Max",
+    "email": "arthur_zzh@126.com"
+  },
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -22,6 +25,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@ngx-progressbar/core": "^5.0.0",
     "core-js": "^2.4.1",
     "ng-zorro-antd": "^0.7.0-beta.5",
     "ngx-logger": "^3.0.0-rc1",

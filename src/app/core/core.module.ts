@@ -5,10 +5,12 @@ import { ComposeMessageComponent } from './component/compose-message/compose-mes
 import { HeaderComponent } from './component/header/header.component';
 import { AuthService } from './service/auth.service';
 import { AuthGuard } from './service/auth-guard.service';
+import { SeoService } from './service';
 
 const BASE_SERVICES = [
   AuthService,
-  AuthGuard
+  AuthGuard,
+  SeoService
 ];
 
 const BASE_COMPONENTS = [
@@ -21,8 +23,8 @@ const BASE_COMPONENTS = [
     CommonModule,
     SharedModule
   ],
-  declarations: [ ...BASE_COMPONENTS ],
-  exports: [ ...BASE_COMPONENTS ],
+  declarations: [...BASE_COMPONENTS],
+  exports: [...BASE_COMPONENTS],
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders {

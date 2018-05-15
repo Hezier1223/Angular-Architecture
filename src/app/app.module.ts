@@ -12,6 +12,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { httpInterceptorProviders } from 'app/core/http-interceptors';
+import { NgProgressModule } from '@ngx-progressbar/core';
 
 
 @NgModule({
@@ -23,13 +24,18 @@ import { httpInterceptorProviders } from 'app/core/http-interceptors';
     BrowserAnimationsModule,
     HttpClientModule,
     NgZorroAntdModule.forRoot(),
-    SharedModule,
     CoreModule.forRoot(),
     LoggerModule.forRoot({
       // serverLoggingUrl: '/api/logs',
       level: NgxLoggerLevel.DEBUG,
       serverLogLevel: NgxLoggerLevel.ERROR
     }),
+    NgProgressModule.forRoot({
+      trickleSpeed: 200,
+      min: 20,
+      meteor: false
+    }),
+    SharedModule,
     PageModule,
     AppRoutingModule
   ],

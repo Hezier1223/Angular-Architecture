@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "public-sentiment-agent"
+    "name": "Angular-Architecture"
   },
   "apps": [
     {
@@ -20,7 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "../node_modules/ng-zorro-antd/src/ng-zorro-antd.less"
+        "../node_modules/ng-zorro-antd/src/ng-zorro-antd.less",
+        "assets/styles/theme.less"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

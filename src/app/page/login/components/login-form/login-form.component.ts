@@ -1,23 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../login.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/service';
 import { NGXLogger } from 'ngx-logger';
+import { NgProgress, NgProgressComponent } from '@ngx-progressbar/core';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent implements OnInit, AfterViewInit {
   validateForm: FormGroup;
+  @ViewChild(NgProgressComponent) progressBar: NgProgressComponent;
 
   constructor(private fb: FormBuilder,
               private router: Router,
               private loginService: LoginService,
               private authService: AuthService,
-              private logger: NGXLogger) {
+              private logger: NGXLogger,
+              public progress: NgProgress) {
   }
 
   ngOnInit() {
@@ -26,6 +29,11 @@ export class LoginFormComponent implements OnInit {
       password: [null, [Validators.required]],
       remember: [true]
     });
+  }
+
+  ngAfterViewInit() {
+    console.log(this.progressBar);
+    // this.progressBar.start();
   }
 
   submitForm(): void {
@@ -37,12 +45,13 @@ export class LoginFormComponent implements OnInit {
 
 
   login() {
+    this.progress.start();
     this.logger.info('Login');
     this.loginService.login().subscribe((val) => {
       this.authService.isLoggedIn = true;
       this.authService.token = val['data'];
       const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/dashboard';
-      this.router.navigate([redirect]).then();
+      // this.router.navigate([redirect]).then();
     });
   }
 
