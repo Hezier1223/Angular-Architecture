@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { httpInterceptorProviders } from 'app/core/http-interceptors';
 
 
 @NgModule({
@@ -31,6 +32,9 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
     }),
     PageModule,
     AppRoutingModule
+  ],
+  providers: [
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })
