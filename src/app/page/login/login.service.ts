@@ -1,36 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../core/service';
+import { Observable } from 'rxjs/Observable';
+import { environment } from '../../../environments/environment';
+import { Md5 } from 'ts-md5';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class LoginService {
 
-  message: string;
-
-  constructor(public authService: AuthService, public router: Router) {
-    this.setMessage();
+  constructor(private http: HttpClient) {
   }
 
-  setMessage() {
-    this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
-    console.log(this.message);
-  }
-
-  login() {
-    this.message = 'Trying to log in ...';
-
-    this.authService.login().subscribe((val) => {
-      console.log(val);
-      this.authService.isLoggedIn = true;
-      this.authService.token = val['data'];
-      this.setMessage();
-      const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/dashboard';
-      this.router.navigate([redirect]).then();
+  login(): Observable<Object> {
+    return this.http.post(`${environment.CRONUS_API}/login`, {
+      account: 'admin',
+      password: Md5.hashStr('1data$INFO'),
+      roleCodes: 'system_ag'
     });
   }
 
-  logout() {
-    this.authService.logout();
-    this.setMessage();
-  }
 }

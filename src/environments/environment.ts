@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  CRONUS_API: 'http://cronus.beta.1datatech.cn/api',
+  CRONUS_API: 'http://cronus.1datatech.cn/api',
   GAEA_API: 'http://gaea.beta.1datatech.cn/resources/api',
   CAIN_API: 'http://cain.beta.1datatech.cn/api',
   APHRODITE_API: 'http://cms.beta.1datatech.com/aphrodite',

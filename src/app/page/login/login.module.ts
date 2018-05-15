@@ -6,6 +6,7 @@ import { LoginComponent } from './login.component';
 import { LoginService } from './login.service';
 import { SharedModule } from '../../shared/shared.module';
 import { CoreModule } from '../../core/core.module';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   imports: [
@@ -14,8 +15,8 @@ import { CoreModule } from '../../core/core.module';
     SharedModule,
     CoreModule
   ],
-  declarations: [ LoginComponent ],
-  providers: [ LoginService ]
+  declarations: [LoginComponent, LoginFormComponent],
+  providers: [LoginService]
 })
 export class LoginModule {
 }
