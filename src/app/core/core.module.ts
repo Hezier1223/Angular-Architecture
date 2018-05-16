@@ -1,8 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '../shared/shared.module';
-import { ComposeMessageComponent } from './component/compose-message/compose-message.component';
-import { HeaderComponent } from './component/header/header.component';
+import { SharedModule } from '@shared/shared.module';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { SeoService } from './seo/seo.service';
@@ -16,18 +14,11 @@ const BASE_SERVICES = [
   I18NService
 ];
 
-const BASE_COMPONENTS = [
-  ComposeMessageComponent,
-  HeaderComponent
-];
-
 @NgModule({
   imports: [
     CommonModule,
     SharedModule
   ],
-  declarations: [...BASE_COMPONENTS],
-  exports: [...BASE_COMPONENTS],
 })
 export class CoreModule {
   constructor(
