@@ -28,7 +28,6 @@ export class I18NService {
     this._default = lans.includes(defaultLan) ? defaultLan : lans[0];
     translate.addLangs(lans);
     this.setZorro(this._default).setDateFns(this._default);
-    this.logger.info(this._default);
   }
 
   setZorro(lang: string): this {
@@ -52,7 +51,6 @@ export class I18NService {
     }
     this.setZorro(lang).setDateFns(lang);
     this.translate.use(lang).subscribe(() => this.change$.next(lang));
-    this.logger.info(lang);
   }
 
   /** 获取语言列表 */

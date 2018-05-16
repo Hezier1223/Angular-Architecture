@@ -22,7 +22,6 @@ export class StartupService {
 
   load(): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.logger.warn(this.i18n.defaultLang);
       zip(
         this.httpClient.get(`assets/_/i18n/${this.i18n.defaultLang}.json`),
         this.httpClient.get('assets/_/app-data.json'),
