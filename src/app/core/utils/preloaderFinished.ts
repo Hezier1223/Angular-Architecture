@@ -21,7 +21,7 @@ function preloaderFinished() {
     preloader.className += ' preloader-hidden-add preloader-hidden-add-active';
   }
 
-  (/** @type {?} */ (window)).appBootstrap = () => {
+  (/** @type {?} */ (window))['appBootstrap'] = () => {
     setTimeout(() => {
       remove();
       body.style.overflow = '';

@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from '@core/core.module';
-import { PageModule } from './page/page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '@shared/shared.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
@@ -18,6 +17,8 @@ import { StartupService } from '@core/startup/startup.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { registerLocaleData } from '@angular/common';
+import { LayoutModule } from './layout/layout.module';
+import { RoutesModule } from './routes/routes.module';
 
 registerLocaleData(localeZhHans);
 
@@ -52,7 +53,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       meteor: false
     }),
     SharedModule,
-    PageModule,
+    // PageModule,
+    LayoutModule,
+    RoutesModule,
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
