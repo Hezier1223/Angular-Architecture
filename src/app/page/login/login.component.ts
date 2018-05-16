@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { slideInDownAnimation } from '../../shared/animation/route-animation';
+import { slideInDownAnimation } from '@shared/animation/route-animation';
 
 @Component({
   selector: 'app-login',

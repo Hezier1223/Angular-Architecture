@@ -1,6 +1,3 @@
-<!--<p>{{'test'|translate}}</p>-->
-<p>{{"test"|translate}}</p>
-
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
   <nz-form-item>
     <nz-form-control>
@@ -27,7 +24,7 @@
       <label nz-checkbox formControlName="remember">
         <span>Remember me</span>
       </label>
-      <a class="login-form-forgot" class="login-form-forgot">Forgot password</a>
+      <a class="login-form-forgot">Forgot password</a>
       <button nz-button class="login-form-button" [nzType]="'primary'" (click)="login()">Log in</button>
       Or
       <a href="">register now!</a>

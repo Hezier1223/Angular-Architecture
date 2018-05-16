@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
-import localeZhHans from '@angular/common/locales/zh-Hans';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -13,14 +12,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { httpInterceptorProviders } from 'app/core/net';
 import { NgProgressModule } from '@ngx-progressbar/core';
-import { StartupService } from '@core/startup/startup.service';
+import { StartupService } from '@core/services/startup/startup.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { registerLocaleData } from '@angular/common';
 import { LayoutModule } from './layout/layout.module';
 import { RoutesModule } from './routes/routes.module';
-
-registerLocaleData(localeZhHans);
 
 export function StartupServiceFactory(
   startupService: StartupService,
@@ -66,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
+    {provide: LOCALE_ID, useValue: 'zh-Hans'},
     httpInterceptorProviders,
     StartupService,
     {

@@ -4,7 +4,7 @@ import { LoginService } from '../../login.service';
 import { Router } from '@angular/router';
 import { NGXLogger } from 'ngx-logger';
 import { NgProgress, NgProgressComponent } from '@ngx-progressbar/core';
-import { AuthService } from '../../../../core/auth/auth.service';
+import { AuthService } from '@core/services/auth';
 
 @Component({
   selector: 'app-login-form',

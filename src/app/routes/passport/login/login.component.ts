@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NzModalService } from 'ng-zorro-antd';
+import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { environment } from '@env/environment';
 import { SocialOpenType } from '@core/utils/constants';
 
@@ -22,6 +22,7 @@ export class UserLoginComponent implements OnDestroy {
     fb: FormBuilder,
     private router: Router,
     private modalSrv: NzModalService,
+    public msg: NzMessageService
   ) {
     this.form = fb.group({
       userName: [null, [Validators.required, Validators.minLength(5)]],

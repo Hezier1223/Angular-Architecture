@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { I18NService } from '../i18n/i18n.service';
+import { I18NService } from '@core/services/i18n';
 import { NGXLogger } from 'ngx-logger';
 
 /**
