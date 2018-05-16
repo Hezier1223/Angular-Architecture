@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageComponent } from './page.component';
-import { AuthGuard } from '../core/service/auth-guard.service';
+import { AuthGuard } from '@core/auth/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: 'app/page/dashboard/dashboard.module#DashboardModule',
-        canActivate: [ AuthGuard ]
+        canActivate: [AuthGuard]
       },
       {
         path: '**',
@@ -31,8 +31,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forChild(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class PageRoutingModule {
 }

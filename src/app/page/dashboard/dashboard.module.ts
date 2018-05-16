@@ -10,8 +10,7 @@ import { CoreModule } from '../../core/core.module';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule,
-    CoreModule
+    SharedModule
   ],
   declarations: [ DashboardComponent ]
 })

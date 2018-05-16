@@ -2,9 +2,9 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../login.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../../core/service';
 import { NGXLogger } from 'ngx-logger';
 import { NgProgress, NgProgressComponent } from '@ngx-progressbar/core';
+import { AuthService } from '../../../../core/auth/auth.service';
 
 @Component({
   selector: 'app-login-form',

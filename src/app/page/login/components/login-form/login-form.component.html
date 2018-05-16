@@ -1,11 +1,14 @@
+<!--<p>{{'test'|translate}}</p>-->
+<p>{{"test"|translate}}</p>
+
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
   <nz-form-item>
     <nz-form-control>
       <nz-input-group nzPrefixIcon="anticon anticon-user">
         <input type="text" nz-input formControlName="userName" placeholder="Username">
       </nz-input-group>
-      <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">Please input
-        your username!
+      <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">
+        {{"test"|translate}}your username!
       </nz-form-explain>
     </nz-form-control>
   </nz-form-item>

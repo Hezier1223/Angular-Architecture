@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { environment } from '../../../environments/environment';
+import { environment } from '@env/environment';
 import { Md5 } from 'ts-md5';
 import { HttpClient } from '@angular/common/http';
 

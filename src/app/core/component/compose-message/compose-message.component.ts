@@ -4,8 +4,8 @@ import { slideInDownAnimation } from '../../../shared/animation/route-animation'
 
 @Component({
   templateUrl: './compose-message.component.html',
-  styles: [ ':host { position: relative; bottom: 10%; }' ],
-  animations: [ slideInDownAnimation ]
+  styles: [':host { position: relative; bottom: 10%; }'],
+  animations: [slideInDownAnimation]
 })
 export class ComposeMessageComponent {
   @HostBinding('@routeAnimation') routeAnimation = true;
@@ -14,6 +14,7 @@ export class ComposeMessageComponent {
 
   details: string;
   sending = false;
+  message: string;
 
   constructor(private router: Router) {
   }
@@ -35,6 +36,6 @@ export class ComposeMessageComponent {
   closePopup() {
     // Providing a `null` value to the named outlet
     // clears the contents of the named outlet
-    this.router.navigate([ {outlets: {popup: null}} ]);
+    this.router.navigate([{outlets: {popup: null}}]);
   }
 }
