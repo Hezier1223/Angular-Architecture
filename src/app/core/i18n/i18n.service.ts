@@ -23,8 +23,7 @@ export class I18NService {
     private translate: TranslateService,
     private logger: NGXLogger
   ) {
-    // const defaultLan = 'zh-CN' || translate.getBrowserLang();
-    const defaultLan = translate.getBrowserLang();
+    const defaultLan = 'zh-CN' || translate.getBrowserLang();
     const lans = this._langs.map(item => item.code);
     this._default = lans.includes(defaultLan) ? defaultLan : lans[0];
     translate.addLangs(lans);

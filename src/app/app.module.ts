@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import localeZhHans from '@angular/common/locales/zh-Hans';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,6 +17,9 @@ import { NgProgressModule } from '@ngx-progressbar/core';
 import { StartupService } from '@core/startup/startup.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localeZhHans);
 
 export function StartupServiceFactory(
   startupService: StartupService,
