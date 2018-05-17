@@ -1,1 +1,2 @@
-export * from './public_api';
+export { ComponentModule } from './component.module';
+export * from './global-footer';

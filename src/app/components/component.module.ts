@@ -1,9 +1,9 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { AdGlobalFooterModule } from './global-footer/global-footer.module';
+import { GlobalFooterModule } from './global-footer/global-footer.module';
 // region: all modules
 
 const MODULES = [
-  AdGlobalFooterModule,
+  GlobalFooterModule,
 ];
 
 // endregion
@@ -12,12 +12,12 @@ const MODULES = [
   imports: [],
   exports: MODULES,
 })
-export class DelonABCRootModule {
+export class ComponentRootModule {
 }
 
 @NgModule({exports: MODULES})
-export class DelonABCModule {
+export class ComponentModule {
   static forRoot(): ModuleWithProviders {
-    return {ngModule: DelonABCRootModule};
+    return {ngModule: ComponentRootModule};
   }
 }

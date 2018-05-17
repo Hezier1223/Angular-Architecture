@@ -17,7 +17,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LayoutModule } from './layout/layout.module';
 import { RoutesModule } from './routes/routes.module';
-import { DelonABCModule } from './components';
+import { ComponentModule } from './components';
 
 export function StartupServiceFactory(
   startupService: StartupService,
@@ -49,18 +49,18 @@ export function HttpLoaderFactory(http: HttpClient) {
       min: 20,
       meteor: false
     }),
-    SharedModule,
-    LayoutModule,
-    RoutesModule,
-    DelonABCModule.forRoot(),
-    AppRoutingModule,
+    ComponentModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    SharedModule,
+    LayoutModule,
+    RoutesModule,
+    AppRoutingModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'zh-Hans'},

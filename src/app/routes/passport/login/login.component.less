@@ -1,31 +1,15 @@
 @import '../../../../styles/variable';
-//
-//:host {
-//  display: block;
-//  width: 368px;
-//  margin: 0 auto;
-//  ::ng-deep {
-//    .ant-tabs .ant-tabs-bar {
-//      border-bottom: 0;
-//      margin-bottom: 24px;
-//      text-align: center;
-//    }
-//    .ant-tabs-tab {
-//      font-size: 16px;
-//      line-height: 24px;
-//    }
-//    .ant-tabs-tab-active {
-//      font-weight: 400;
-//    }
-
-//  }
-//}
 
 :host {
   display: block;
   width: 368px;
   margin: 0 auto;
   ::ng-deep {
+    .ant-form-item-control {
+      line-height: 32px;
+      position: relative;
+      zoom: 1;
+    }
     .ant-tabs .ant-tabs-bar {
       border-bottom: 0;
       margin-bottom: 24px;
@@ -38,8 +22,8 @@
     .ant-input-affix-wrapper .ant-input:not(:first-child) {
       padding-left: 34px;
     }
-    .ant-tabs-content {
-      padding: 5px;
+    .ant-tabs-tabpane {
+      padding: 0 2px;
     }
     .ant-tabs-tab-active {
       font-weight: 400;

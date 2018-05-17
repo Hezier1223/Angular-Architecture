@@ -3,7 +3,7 @@
   <nz-alert *ngIf="error" [nzType]="'error'" [nzMessage]="error" [nzShowIcon]="true" class="mb-lg"></nz-alert>
   <nz-form-item>
     <nz-form-control>
-      <nz-input-group nzSize="large" nzAddonBeforeIcon="anticon anticon-user">
+      <nz-input-group nzAddonBeforeIcon="anticon anticon-user">
         <input nz-input formControlName="mail" placeholder="邮箱">
       </nz-input-group>
       <ng-container *ngIf="mail.dirty && mail.errors">
@@ -17,7 +17,7 @@
       <nz-popover [nzPlacement]="'right'" [nzTrigger]="'focus'" [(nzVisible)]="visible"
                   nzOverlayClassName="register-password-cdk"
                   [nzOverlayStyle]="{'width.px': 240}">
-        <nz-input-group nzSize="large" nz-popover nzAddonBeforeIcon="anticon anticon-lock">
+        <nz-input-group nz-popover nzAddonBeforeIcon="anticon anticon-lock">
           <input nz-input type="password" formControlName="password" placeholder="至少6位密码，区分大小写">
         </nz-input-group>
         <nz-form-explain *ngIf="password.dirty && password.errors">请输入密码！</nz-form-explain>
@@ -40,7 +40,7 @@
   </nz-form-item>
   <nz-form-item>
     <nz-form-control>
-      <nz-input-group nzSize="large" nzAddonBeforeIcon="anticon anticon-lock">
+      <nz-input-group nzAddonBeforeIcon="anticon anticon-lock">
         <input nz-input type="password" formControlName="confirm" placeholder="确认密码">
       </nz-input-group>
       <ng-container *ngIf="confirm.dirty && confirm.errors">
@@ -51,7 +51,7 @@
   </nz-form-item>
   <nz-form-item>
     <nz-form-control>
-      <nz-input-group nzSize="large" [nzAddOnBefore]="addOnBeforeTemplate">
+      <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
         <ng-template #addOnBeforeTemplate>
           <nz-select formControlName="mobilePrefix" style="width: 100px;">
             <nz-option [nzLabel]="'+86'" [nzValue]="'+86'"></nz-option>
@@ -67,13 +67,13 @@
     <nz-form-control>
       <nz-row [nzGutter]="8">
         <nz-col [nzSpan]="16">
-          <nz-input-group nzSize="large" nzAddonBeforeIcon="anticon anticon-mail">
+          <nz-input-group nzAddonBeforeIcon="anticon anticon-mail">
             <input nz-input formControlName="captcha" placeholder="验证码">
           </nz-input-group>
           <nz-form-explain *ngIf="captcha.dirty && captcha.errors">请输入验证码！</nz-form-explain>
         </nz-col>
         <nz-col [nzSpan]="8">
-          <button nz-button nzSize="large" (click)="getCaptcha()" [disabled]="count" class="ant-btn__block">{{ count ?
+          <button nz-button (click)="getCaptcha()" [disabled]="count" class="ant-btn__block">{{ count ?
             count + 's' : '获取验证码' }}
           </button>
         </nz-col>
@@ -81,7 +81,7 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <button nz-button nzType="primary" nzSize="large" type="submit" [nzLoading]="loading" class="submit">
+    <button nz-button nzType="primary" type="submit" [nzLoading]="loading" class="submit">
       <span>注册</span>
     </button>
     <a class="login" routerLink="/passport/login">使用已有账户登录</a>
