@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { I18NService } from '@core/services/i18n';
 import { NGXLogger } from 'ngx-logger';
+import { SettingsService } from '@core/services/settings';
 
 /**
  * 用于应用启动时
@@ -16,6 +17,7 @@ export class StartupService {
     private translate: TranslateService,
     private i18n: I18NService,
     private httpClient: HttpClient,
+    private settingService: SettingsService,
     private logger: NGXLogger
   ) {
   }
@@ -37,7 +39,11 @@ export class StartupService {
           ([langData, appData]) => {
             this.translate.setTranslation(this.i18n.defaultLang, langData);
             this.translate.setDefaultLang(this.i18n.defaultLang);
-            console.log(appData);
+            const res: any = appData;
+            // 应用信息：包括站点名、描述、年份
+            this.settingService.setApp(res.app);
+            // 用户信息：包括姓名、头像、邮箱地址
+            this.settingService.setUser(res.user);
           },
           () => {
           },

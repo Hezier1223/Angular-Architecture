@@ -5,8 +5,13 @@ import { UserLoginComponent } from './passport/login';
 import { UserRegisterComponent } from './passport/register';
 import { UserRegisterResultComponent } from './passport/register-result';
 import { DemoComponent } from './demo/demo.component';
+import { LayoutDefaultComponent } from '../layout/default/default.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: LayoutDefaultComponent,
+  },
   {
     path: 'passport',
     component: PassportComponent,

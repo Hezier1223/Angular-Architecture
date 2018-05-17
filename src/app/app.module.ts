@@ -18,6 +18,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LayoutModule } from './layout/layout.module';
 import { RoutesModule } from './routes/routes.module';
 import { ComponentModule } from './components';
+import { WINDOW } from '@core/win_tokens';
 
 export function StartupServiceFactory(
   startupService: StartupService,
@@ -64,6 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'zh-Hans'},
+    {provide: WINDOW, useValue: window},
     httpInterceptorProviders,
     StartupService,
     {
