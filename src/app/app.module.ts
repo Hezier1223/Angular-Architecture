@@ -17,6 +17,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LayoutModule } from './layout/layout.module';
 import { RoutesModule } from './routes/routes.module';
+import { DelonABCModule } from './components';
 
 export function StartupServiceFactory(
   startupService: StartupService,
@@ -31,7 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +50,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       meteor: false
     }),
     SharedModule,
-    // PageModule,
     LayoutModule,
     RoutesModule,
+    DelonABCModule.forRoot(),
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {

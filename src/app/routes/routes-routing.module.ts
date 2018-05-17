@@ -4,6 +4,7 @@ import { PassportComponent } from '../layout/passport';
 import { UserLoginComponent } from './passport/login';
 import { UserRegisterComponent } from './passport/register';
 import { UserRegisterResultComponent } from './passport/register-result';
+import { DemoComponent } from './demo/demo.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'demo',
+    component: DemoComponent,
+    data: {title: 'Demo'}
+  }
 ];
 
 @NgModule({

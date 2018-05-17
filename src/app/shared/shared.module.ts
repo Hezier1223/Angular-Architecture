@@ -4,6 +4,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+import { DelonABCModule } from '../components';
+
+const COMPONENTS = [];
+const DIRECTIVES = [];
 
 @NgModule({
   imports: [
@@ -12,7 +16,10 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     ReactiveFormsModule,
   ],
-  declarations: [],
+  declarations: [
+    ...COMPONENTS,
+    ...DIRECTIVES,
+  ],
   exports: [
     CommonModule,
     FormsModule,
@@ -20,7 +27,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     NgZorroAntdModule,
     ReactiveFormsModule,
-    TranslateModule
+    TranslateModule,
+    DelonABCModule
   ]
 })
 export class SharedModule {
