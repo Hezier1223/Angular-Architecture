@@ -1,0 +1,25 @@
+<nz-badge *ngIf="data?.length === 0" [nzCount]="count">
+  <i class="anticon anticon-bell"></i>
+</nz-badge>
+<nz-popover *ngIf="data?.length > 0"
+            [nzVisible]="popoverVisible" (nzVisibleChange)="onVisibleChange($event)" nzTrigger="click"
+            nzPlacement="bottomRight"
+            nzOverlayClassName="ad-notice-icon-con">
+  <div nz-popover class="item">
+    <nz-badge [nzCount]="count">
+      <i class="anticon anticon-bell"></i>
+    </nz-badge>
+  </div>
+  <ng-template #nzTemplate>
+    <nz-spin [nzSpinning]="loading" [nzDelay]="0">
+      <nz-tabset>
+        <nz-tab *ngFor="let i of data" [nzTitle]="i.title">
+          <app-notice-icon-tab
+            [data]="i"
+            (select)="onSelect($event)"
+            (clear)="onClear($event)"></app-notice-icon-tab>
+        </nz-tab>
+      </nz-tabset>
+    </nz-spin>
+  </ng-template>
+</nz-popover>

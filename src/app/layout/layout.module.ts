@@ -3,8 +3,10 @@ import { PassportComponent } from './passport';
 import { SharedModule } from '@shared/shared.module';
 import { LayoutDefaultComponent } from './default/default.component';
 import { HeaderComponent } from './default/header/header.component';
+import { HeaderSearchComponent } from './default/header/components/search/search.component';
+import { HeaderNotifyComponent } from './default/header/components/header-notify/header-notify.component';
 
-const COMPONENTS = [LayoutDefaultComponent, HeaderComponent];
+const COMPONENTS = [LayoutDefaultComponent, HeaderComponent, HeaderSearchComponent, HeaderNotifyComponent];
 const PASSPORT = [PassportComponent];
 
 @NgModule({
